@@ -1,18 +1,19 @@
 Translations: [English (en)](README.md) · [日本語 (ja)](README.ja.md) · [한국어 (ko)](README.ko.md) · [Türkçe (tr)](README.tr.md) · [中文 (zh)](README.zh.md)
 
-HTML Best Practices
+HTML 最佳实践
 ===================
 
-For writing maintainable and scalable HTML documents
+用于编写可维护、可扩展的 HTML。
 
 <!-- #toc -->
 
-- [General](#general)
-    - [Start with DOCTYPE](#start-with-doctype)
-    - [Don’t use legacy or obsolete DOCTYPE](#dont-use-legacy-or-obsolete-doctype)
-    - [Don’t use XML Declaration](#dont-use-xml-declaration)
+- [HTML 最佳实践](#html-%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5)
+  - [通常](#%e9%80%9a%e5%b8%b8)
+    - [以 DOCTYPE 开头](#%e4%bb%a5-doctype-%e5%bc%80%e5%a4%b4)
+    - [不要使用遗留的或过时的 DOCTYPE](#%e4%b8%8d%e8%a6%81%e4%bd%bf%e7%94%a8%e9%81%97%e7%95%99%e7%9a%84%e6%88%96%e8%bf%87%e6%97%b6%e7%9a%84-doctype)
+    - [不要使用 XML 声明](#%e4%b8%8d%e8%a6%81%e4%bd%bf%e7%94%a8-xml-%e5%a3%b0%e6%98%8e)
     - [Don’t use character references as much as possible](#dont-use-character-references-as-much-as-possible)
-    - [Escape `&`, `<`, `>`, `"`, and `'` with named character references](#escape-----and--with-named-character-references)
+    - [Escape `&`, `<`, `>`, `"`, and `'` with named character references](#escape----%22-and--with-named-character-references)
     - [Use numeric character references for control or invisible characters](#use-numeric-character-references-for-control-or-invisible-characters)
     - [Put white spaces around comment contents](#put-white-spaces-around-comment-contents)
     - [Don’t omit closing tag](#dont-omit-closing-tag)
@@ -26,11 +27,11 @@ For writing maintainable and scalable HTML documents
     - [Don’t use XML attributes](#dont-use-xml-attributes)
     - [Don’t mix `data-*`, Microdata, and RDFa Lite attributes with common attributes](#dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes)
     - [Prefer default implicit ARIA semantics](#prefer-default-implicit-aria-semantics)
-- [The root element](#the-root-element)
+  - [The root element](#the-root-element)
     - [Add `lang` attribute](#add-lang-attribute)
     - [Keep `lang` attribute value as short as possible](#keep-lang-attribute-value-as-short-as-possible)
     - [Avoid `data-*` as much as possible](#avoid-data--as-much-as-possible)
-- [Document metadata](#document-metadata)
+  - [Document metadata](#document-metadata)
     - [Add `title` element](#add-title-element)
     - [Don’t use `base` element](#dont-use-base-element)
     - [Specify MIME type of minor linked resources](#specify-mime-type-of-minor-linked-resources)
@@ -45,11 +46,11 @@ For writing maintainable and scalable HTML documents
     - [Omit `type` attribute for CSS](#omit-type-attribute-for-css)
     - [Don’t comment out contents of `style` element](#dont-comment-out-contents-of-style-element)
     - [Don’t mix tag for CSS and JavaScript](#dont-mix-tag-for-css-and-javascript)
-- [Sections](#sections)
+  - [Sections](#sections)
     - [Add `body` element](#add-body-element)
     - [Forget about `hgroup` element](#forget-about-hgroup-element)
     - [Use `address` element only for contact information](#use-address-element-only-for-contact-information)
-- [Grouping content](#grouping-content)
+  - [Grouping content](#grouping-content)
     - [Don’t start with newline in `pre` element](#dont-start-with-newline-in-pre-element)
     - [Use appropriate element in `blockquote` element](#use-appropriate-element-in-blockquote-element)
     - [Don’t include attribution directly in `blockquote` element](#dont-include-attribution-directly-in-blockquote-element)
@@ -59,7 +60,7 @@ For writing maintainable and scalable HTML documents
     - [Place `figcaption` element as first or last child of `figure` element](#place-figcaption-element-as-first-or-last-child-of-figure-element)
     - [Use `main` element](#use-main-element)
     - [Avoid `div` element as much as possible](#avoid-div-element-as-much-as-possible)
-- [Text-level semantics](#text-level-semantics)
+  - [Text-level semantics](#text-level-semantics)
     - [Don’t split same link that can be grouped](#dont-split-same-link-that-can-be-grouped)
     - [Use `download` attribute for downloading a resource](#use-download-attribute-for-downloading-a-resource)
     - [Use `rel`, `hreflang`, and `type` attribute if needed](#use-rel-hreflang-and-type-attribute-if-needed)
@@ -70,14 +71,14 @@ For writing maintainable and scalable HTML documents
     - [Add `title` attribute to `abbr` element](#add-title-attribute-to-abbr-element)
     - [Markup `ruby` element verbosely](#markup-ruby-element-verbosely)
     - [Add `datetime` attribute to non-machine-readable `time` element](#add-datetime-attribute-to-non-machine-readable-time-element)
-    - [Specify code language with `class` attribute prefixed with `language-`](#specify-code-language-with-class-attribute-prefixed-with-language-)
+    - [Specify code language with `class` attribute prefixed with `language-`](#specify-code-language-with-class-attribute-prefixed-with-language)
     - [Keep `kbd` element as simple as possible](#keep-kbd-element-as-simple-as-possible)
     - [Avoid `span` element as much as possible](#avoid-span-element-as-much-as-possible)
     - [Break after `br` element](#break-after-br-element)
     - [Don’t use `br` element only for presentational purpose](#dont-use-br-element-only-for-presentational-purpose)
-- [Edits](#edits)
+  - [Edits](#edits)
     - [Don’t stride `ins` and `del` element over other elements](#dont-stride-ins-and-del-element-over-other-elements)
-- [Embedded content](#embedded-content)
+  - [Embedded content](#embedded-content)
     - [Provide fallback `img` element for `picture` element](#provide-fallback-img-element-for-picture-element)
     - [Add `alt` attrbute to `img` element if needed](#add-alt-attrbute-to-img-element-if-needed)
     - [Empty `alt` attribute if possible](#empty-alt-attribute-if-possible)
@@ -85,49 +86,49 @@ For writing maintainable and scalable HTML documents
     - [Empty `iframe` element](#empty-iframe-element)
     - [Markup `map` element content](#markup-map-element-content)
     - [Provide fallback content for `audio` or `video` element](#provide-fallback-content-for-audio-or-video-element)
-- [Tabular data](#tabular-data)
+  - [Tabular data](#tabular-data)
     - [Write one cell per line](#write-one-cell-per-line)
     - [Use `th` element for header cell](#use-th-element-for-header-cell)
-- [Forms](#forms)
+  - [Forms](#forms)
     - [Wrap form control with `label` element](#wrap-form-control-with-label-element)
     - [Omit `for` attribute if possible](#omit-for-attribute-if-possible)
     - [Use appropriate `type` attribute for `input` element](#use-appropriate-type-attribute-for-input-element)
-    - [Add `value` attribute to `input type="submit"`](#add-value-attribute-to-input-typesubmit)
+    - [Add `value` attribute to `input type="submit"`](#add-value-attribute-to-input-type%22submit%22)
     - [Add `title` attribute to `input` element when there is `pattern` attribute](#add-title-attribute-to-input-element-when-there-is-pattern-attribute)
     - [Don’t use `placeholder` attribute for labeling](#dont-use-placeholder-attribute-for-labeling)
     - [Write one `option` element per line](#write-one-option-element-per-line)
     - [Add `max` attribute to `progress` element](#add-max-attribute-to-progress-element)
     - [Add `min` and `max` attribute to `meter` element](#add-min-and-max-attribute-to-meter-element)
     - [Place `legend` element as the first child of `fieldset` element](#place-legend-element-as-the-first-child-of-fieldset-element)
-- [Scripting](#scripting)
+  - [Scripting](#scripting)
     - [Omit `type` attribute for JavaScript](#omit-type-attribute-for-javascript)
     - [Don’t comment out contents of `script` element](#dont-comment-out-contents-of-script-element)
     - [Don’t use script-injected `script` element](#dont-use-script-injected-script-element)
-- [Other](#other)
+  - [Other](#other)
     - [Indent consistently](#indent-consistently)
     - [Use absolute path for internal links](#use-absolute-path-for-internal-links)
     - [Don’t use protocol-relative URL for external resources](#dont-use-protocol-relative-url-for-external-resources)
-- [Contributors](#contributors)
-- [Translators](#translators)
-- [License](#license)
+  - [Contributors](#contributors)
+  - [Translators](#translators)
+  - [License](#license)
 
 <!-- /toc -->
 
 
-General
+通常
 -------
 
-### Start with DOCTYPE
+### 以 DOCTYPE 开头
 
-DOCTYPE is required for activating standard mode.
+激活标准模式需要 DOCTYPE。
 
-Bad:
+劣:
 
     <html>
       ...
     </html>
 
-Good:
+优:
 
     <!DOCTYPE html>
     <html>
@@ -135,30 +136,30 @@ Good:
     </html>
 
 
-### Don’t use legacy or obsolete DOCTYPE
+### 不要使用遗留的或过时的 DOCTYPE
 
-DOCTYPE is not for DTD anymore, be simple.
+DOCTYPE 已不再适用 [DTD](https://www.w3schools.com/xml/xml_dtd_intro.asp)，请保持简单。
 
-Bad:
+劣:
 
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
       "http://www.w3.org/TR/html4/strict.dtd">
 
-Good:
+优:
 
     <!DOCTYPE html>
 
 
-### Don’t use XML Declaration
+### 不要使用 XML 声明
 
-Are you sure you want to write XHTML?
+你确定要编写 XHTML？
 
-Bad:
+劣:
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <!DOCTYPE html>
 
-Good:
+优:
 
     <!DOCTYPE html>
 
