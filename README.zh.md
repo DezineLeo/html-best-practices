@@ -12,8 +12,8 @@ HTML 最佳实践
     - [以 DOCTYPE 开头](#%e4%bb%a5-doctype-%e5%bc%80%e5%a4%b4)
     - [不要使用遗留的或过时的 DOCTYPE](#%e4%b8%8d%e8%a6%81%e4%bd%bf%e7%94%a8%e9%81%97%e7%95%99%e7%9a%84%e6%88%96%e8%bf%87%e6%97%b6%e7%9a%84-doctype)
     - [不要使用 XML 声明](#%e4%b8%8d%e8%a6%81%e4%bd%bf%e7%94%a8-xml-%e5%a3%b0%e6%98%8e)
-    - [Don’t use character references as much as possible](#dont-use-character-references-as-much-as-possible)
-    - [Escape `&`, `<`, `>`, `"`, and `'` with named character references](#escape----%22-and--with-named-character-references)
+    - [尽量不使用字符引用](#%e5%b0%bd%e9%87%8f%e4%b8%8d%e4%bd%bf%e7%94%a8%e5%ad%97%e7%ac%a6%e5%bc%95%e7%94%a8)
+    - [使用命名的字符引用转义 `&`、`<`、`>`、`"` 和 `'` 等字符](#%e4%bd%bf%e7%94%a8%e5%91%bd%e5%90%8d%e7%9a%84%e5%ad%97%e7%ac%a6%e5%bc%95%e7%94%a8%e8%bd%ac%e4%b9%89-%22-%e5%92%8c--%e7%ad%89%e5%ad%97%e7%ac%a6)
     - [Use numeric character references for control or invisible characters](#use-numeric-character-references-for-control-or-invisible-characters)
     - [Put white spaces around comment contents](#put-white-spaces-around-comment-contents)
     - [Don’t omit closing tag](#dont-omit-closing-tag)
@@ -164,29 +164,28 @@ DOCTYPE 已不再适用 [DTD](https://www.w3schools.com/xml/xml_dtd_intro.asp)�
     <!DOCTYPE html>
 
 
-### Don’t use character references as much as possible
+### 尽量不使用字符引用
 
-If you write an HTML document with UTF-8, almost all characters (including
-Emoji) can be write directly.
+如果你使用 UTF-8 格式编写 HTML，则几乎所有字符（包括 Emoji 表情符号）都可以直接编写。
 
-Bad:
+劣:
 
     <p><small>Copyright &copy; 2014 W3C<sup>&reg;</sup></small></p>
 
-Good:
+优:
 
     <p><small>Copyright © 2014 W3C<sup>®</sup></small></p>
 
 
-### Escape `&`, `<`, `>`, `"`, and `'` with named character references
+### 使用命名的字符引用转义 `&`、`<`、`>`、`"` 和 `'` 等字符
 
-These characters should escape always for a bug-free HTML document.
+对于无错误的 HTML 文档，这些字符应始终转义。
 
-Bad:
+劣:
 
     <h1>The "&" character</h1>
 
-Good:
+优:
 
     <h1>The &quot;&amp;&quot; character</h1>
 
